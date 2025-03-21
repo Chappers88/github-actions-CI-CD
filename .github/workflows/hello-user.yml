@@ -2,15 +2,16 @@
 
 name: hello user
 
-on: push
+on: 
+  push:
 
 jobs:
   hello-user-job:
+    runs-on: windows-latest
 
-  runs:on: windows-latest
+    steps: 
+      - name: Check out repository code
+        uses: actions/checkout@v4
 
-  steps: 
-    - name: check out repository code
-      uses: actions/checkout@v4
-      - run: echo "$(cat hello_user.txt)"
-
+      - name: Greet the user
+        run: echo "$(cat hello_user.txt)"
