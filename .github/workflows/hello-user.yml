@@ -1,0 +1,16 @@
+# Scenario: Greet user after every successful push to the repository within the logs
+
+name: hello user
+
+on: push
+
+jobs:
+  hello-user-job:
+
+  runs:on: windows-latest
+
+  steps: 
+    - name: check out repository code
+      uses: actions/checkout@v4
+      - run: echo "$(cat hello_user.txt)"
+
